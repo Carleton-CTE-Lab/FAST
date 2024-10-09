@@ -1,0 +1,37 @@
+// Get input and from a source directory directory from the user
+// and save them in a target directory in PNG format
+// Vineeth Aljapur 2024
+
+dirInput = getDirectory("Choose directory containing ND2 files");
+outputDirCh2 = getDirectory("Choose output directory for Channel 1");
+outputDirCh5 = getDirectory("Choose output directory for Channel 5");
+
+// List all ND2 files in the directory
+list = getFileList(dirInput);
+
+// Iterate through the ND2 files
+for (i=0; i<list.length; i++) {
+    if (endsWith(list[i], ".nd2")) {
+        // Open the ND2 file
+        path = dirInput + list[i];
+        run("Bio-Formats Importer", "open=" + path + " autoscale color_mode=Default rois_import=[ROI manager] view=Hyperstack stack_order=XYCZT");
+
+        run("Split Channels");
+      
+        selectWindow("C2-" + list[i]);
+        run("North", "stack");
+        run("Make Binary", "method=Otsu black list");
+        saveAs("tiff", outputDirCh2 + File.separator + list[i] + ".tif");
+        close();
+      
+        selectWindow("C5-" + list[i]);
+        run("Enhance Contrast", "saturated=0.35");
+        run("North", "stack");
+        run("Make Binary", "method=Otsu black list");
+        saveAs("tiff", outputDirCh5 + File.separator + list[i] + ".tif");
+        close();
+	
+        showProgress(i, list.length);
+    }
+}
+
