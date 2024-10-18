@@ -24,8 +24,8 @@ download_file() {
   fi
 }
 
-model_id= # Ask authors for ID
-config_id= # Ask authors for ID
+model_id="1hsmQNUMqThPhdq9Rhqss1U-qb6_Ok_Ez"
+config_id="1g-ISQ2ZZloTn3U00NyTqGoupJgYMnJoL"
 
 # Download files if they don't exist
 download_file "$model_id" "model.keras"

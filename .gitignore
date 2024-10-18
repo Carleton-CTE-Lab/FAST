@@ -6,4 +6,5 @@ package.json
 .vscode/
 data/
 models/
-docs/
+model.keras
+config.json

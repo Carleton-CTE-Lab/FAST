@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import os
+import io
 import json
 import numpy as np
 from PIL import Image
@@ -11,6 +12,7 @@ from PIL import Image
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from scipy.io import loadmat
+from typing import List, Tuple, Union
 
 import cv2
 import tifffile
@@ -397,3 +399,18 @@ def analyze_blob(contour, conversion_factor=0.108, length=1, breadth=1):
       "major_diameter": major_diameter_microns,
       "minor_diameter": minor_diameter_microns
     }
+
+def label2_iou(y_true, y_pred):
+    y_true = tf.squeeze(tf.cast(y_true, tf.int32), axis=-1)
+    y_pred = tf.argmax(y_pred, axis=-1)
+    y_pred = tf.cast(y_pred, tf.int32)
+
+
+    y_true_label2 = tf.equal(y_true, 2)
+    y_pred_label2 = tf.equal(y_pred, 2)
+
+    intersection = tf.reduce_sum(tf.cast(y_true_label2 & y_pred_label2, tf.float32))
+    union = tf.reduce_sum(tf.cast(y_true_label2 | y_pred_label2, tf.float32))
+
+    iou = intersection / (union + tf.keras.backend.epsilon())
+    return iou
