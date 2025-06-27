@@ -42,10 +42,6 @@ If the analysis is finished successfuly it will load the image on your browser s
 
 This project is still being developed and we would love to have contributions from the users both in the form of suggestions under (`Issues` and `Discussions` sections) and `Pull requests`.
 
-### TODO:
-- Add inference code
-- Update app to change from classification to segmenation
-- Update docs for README demo pics
 
 ## License
 
