@@ -10,6 +10,7 @@ This is a flask app that a user can run on the browser for analysis of actin cyt
 ## Table of Contents
 
 - [Installation](#installation)
+- [FAST testing](#testing)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
@@ -20,6 +21,12 @@ This is a flask app that a user can run on the browser for analysis of actin cyt
 Please make sure you have all the required Python packages to run this app. A computer with GPU is preferred but this might also run on CPUs (not tested). <br>
 <br>
 The missing packages can be installed using `pip install -r requirements.txt`
+
+## FAST testing
+
+Please check custom dataset using Google colab notebook `inference_demo.ipynb` to confirm if FAST is approporiate prior to batch inference. 
+
+Refer to the following workflow <br> ![workflow](docs/inference_demo_workflow.png)
 
 ## Usage
 
