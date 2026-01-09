@@ -11,7 +11,7 @@ This is a flask app that a user can run on the browser for analysis of actin cyt
 
 - [Installation](#installation)
 - [FAST testing](#testing)
-- [Usage](#usage)
+- [Future Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -28,8 +28,9 @@ Please check custom dataset using Google colab notebook `inference_demo.ipynb` t
 
 Refer to the following workflow <br> ![workflow](docs/inference_demo_workflow.png)
 
-## Usage
+## Future Usage
 
+This part of the project is still being developed! <br> 
 The model and config file can be downloaded using `download.sh`. <br>
 Make sure that you change the permissions accordingly `chmod +x download.sh` and run the following in your terminal from the project folder `./downloads.sh`
 <br>
