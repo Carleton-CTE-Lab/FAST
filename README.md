@@ -5,13 +5,12 @@
 
 ## Description
 
-This is a flask app that a user can run on the browser for analysis of actin cytoskeleton. It is assumed that the user has collected images using confocal microscopy with relevant immunostaining (like phalloidin). Currently, the app is expected to return images with an overlay of different cytoskeletal components. Basic familiarity with Linux terminals is necessary for using this tool.
+This repo contains implimentation of FAST. It is assumed that the user has collected images using confocal microscopy with relevant immunostaining (like phalloidin). Currently, the app is expected to return images with an overlay of different cytoskeletal components. Basic familiarity with Python is necessary for using this tool.
 
 ## Table of Contents
 
 - [Installation](#installation)
-- [FAST testing](#testing)
-- [Future Usage](#usage)
+- [FAST testing](#fast-testing)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -28,23 +27,9 @@ Please check custom dataset using Google colab notebook `inference_demo.ipynb` t
 
 Refer to the following workflow <br> ![workflow](docs/inference_demo_workflow.png)
 
-## Future Usage
-
-This part of the project is still being developed! <br> 
-The model and config file can be downloaded using `download.sh`. <br>
-Make sure that you change the permissions accordingly `chmod +x download.sh` and run the following in your terminal from the project folder `./downloads.sh`
+If the analysis is finished successfuly it will load the image on your browser something like this for the `test.tif` for background radius 50 ![as an example](docs/example_result.png)
 <br>
-<br>
-Once the model and config file are downloaded the app can be started by running ```python3 app.py```<br>
-<br>
-The user can then open the browser and type https://localhost:5000<br>
-<br>
-This should load the html page that looks something like ![this](docs/homepage.png)<br>
-Click on `Choose file` button and upload your `tif` file form your computer. Then click on `upload` button. Depending on the model, config, system configuration, and user file size this might take a few minutes to run the analysis.<br>
-<br>
-If the analysis is finished successfuly it will load the image on your browser something like this ![as an example](docs/example_result.png)
-<br>
-**Note:** you might have to change the values of thresholds in the config.json to suit your data
+**Note:** you might have to change the values of thresholds like background subtraction radius to suit your data
 
 ## Contributing
 
